@@ -2,7 +2,7 @@
 #define Tree_hpp
 
 #include <stdio.h>
-#include <Node.hpp>
+#include "Node.hpp"
 
 class Tree{
 private:
@@ -10,6 +10,6 @@ private:
 public:
     
     
-}
+};
 
 #endif /* Tree_hpp */
