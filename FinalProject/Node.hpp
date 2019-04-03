@@ -5,7 +5,9 @@
 
 class Node{
 private:
-    
+    Node* LeftChild;
+    Node* RightChild;
+    Node* Parent;
     
 public:
     
