@@ -6,7 +6,7 @@ using std::endl;
 
 
 int menu(){
-    char menu;
+    char menu = '\0';
     
     while (menu != 'x' || menu != 'X'){
         cout << "menu:" << endl;
@@ -157,4 +157,9 @@ int menu(){
     
     
     return 0;
+}
+
+
+void readCSV(){
+    
 }
