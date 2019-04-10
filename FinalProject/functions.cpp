@@ -51,20 +51,21 @@ int menu(){
                 //TODO Add a record to Actor-Actress Database
             {
                 Tree B;
-                Node* rootNode = new Node;
-                Data D;
-                string key = rootNode ->GetData().Name;
-                Node* Child = new Node(2000, "Best in Town", 0, "Earl Grey", "wtf is this shit?");
-                Node* Child2 = new Node(2003, "Beswn", 1, "Father Time", "wtf is this shit 2?");
-              
-                B.InsertNode(rootNode, key);
-                B.InsertNode(Child, Child ->GetData().Name);
-                B.InsertNode(Child2, Child2 ->GetData().Name);
                 
-                cout << B.isEmpty() << endl;
+                //test entries
+                Data D;
+                Data D2(2019,"Best Sound Design", 1, "Tom Lucero", "Carbon");
+                Data D3(2000,"Best actor", 0, "Harrison Ford", "Star Wars");
+                Data D4(2019,"Best soundtrack Composition", 1, "Jean P. Kabche", "Carbon");
+                
+                //test insertions
+                B.InsertNode(D, D.Name);
+                B.InsertNode(D2, D2.Name);
+                B.InsertNode(D3, D3.Name);
+                B.InsertNode(D4, D4.Name);
               break;
             }
-                
+        
             case 'b':
             case 'B':
                 //TODO Add a record to movie database

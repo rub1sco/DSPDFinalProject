@@ -10,7 +10,7 @@ Tree::Tree(Node &Node){
 
 Tree::~Tree(){
     if (rootPtr != nullptr){
-        delete [] rootPtr;
+        delete rootPtr;
     }
 }
 
@@ -18,31 +18,51 @@ void Tree::setRootPtr(Node &node){
     rootPtr = &node;
 }
 
-bool Tree::InsertNode(Node* node, string key){
-    Node* TreeNode = new Node;
-    TreeNode = rootPtr;
-    //if tree is empty
-    if(TreeNode == nullptr){
-//        TreeNode = node;
-//        TreeNode -> SetKey(key);
-        rootPtr = node;
-        rootPtr -> SetKey(key);
-        return true;
+void Tree::InsertNode(Data _data, string _key){
+
+    if(rootPtr == nullptr){
+        Node* NewNode = new Node;
+        NewNode -> SetKey(_key);
+        NewNode -> SetData(_data);
+        
+        rootPtr = NewNode;
+        
     }
     else{
-        //if given key is less than current node key, place in left child
-        if(node->GetData().Name > TreeNode ->GetData().Award){
-            TreeNode -> setLeftNode(*node);
-            TreeNode -> GetLeftNode() -> SetKey(key);
-        }
-        
-        //else be placed in the right child
-        TreeNode -> setRightNode(*node);
-        TreeNode ->GetRightNode() -> SetKey(key);
+        InsertNode(_data, rootPtr, _key);
+    }
+}
 
+void Tree::InsertNode(Data _data, Node *root, string key){
+    
+    if(key == root -> GetKey()){
+        cout << "value exists.." << endl;
     }
     
-    return true;
+    if(key < root -> GetKey()){
+        if (root -> GetLeftNode() == nullptr){
+            Node* LeftChild = new Node;
+            LeftChild -> SetData(_data);
+            LeftChild -> SetKey(key);
+            root -> setLeftNode(LeftChild);
+        }
+        else{
+            InsertNode(_data, root -> GetLeftNode(), key);
+        }
+    }
+    else{
+        if (root -> GetRightNode() == nullptr){
+            Node* RightChild = new Node;
+            
+            RightChild -> SetData(_data);
+            RightChild -> SetKey(key);
+            root -> setRightNode(RightChild);
+        }
+        else{
+            InsertNode(_data, root -> GetRightNode(), key);
+        }
+    }
+
 }
 
 bool Tree::removeNode(Node &node){

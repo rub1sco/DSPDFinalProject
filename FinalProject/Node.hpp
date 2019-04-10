@@ -14,16 +14,15 @@ struct Data{
     string Name;
     string Film;
     Data();
-    Data(string _Award, bool _Winner, string _Name, string _Film);
+    Data(int _year, string _Award, bool _Winner, string _Name, string _Film);
 };
 
 class Node{
-protected:
+private:
     string key;
     Data data;
     Node* LeftChild;
     Node* RightChild;
-//    Node* Parent;       //TODO do we need a parent pointer or just left and right child?
     
 public:
     Node();
@@ -34,9 +33,9 @@ public:
     Data GetData(){return data;}
     void SetData(Data& _data);
     Node* GetLeftNode(){return LeftChild;}
-    void setLeftNode(Node& Node);
+    void setLeftNode(Node* Node);
     Node* GetRightNode(){return RightChild;}
-    void setRightNode(Node& Node);
+    void setRightNode(Node* Node);
     
 };
 

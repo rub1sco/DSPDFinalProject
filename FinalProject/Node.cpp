@@ -8,7 +8,8 @@ Data::Data(){
     Film = "We Forgot about Dre.";
 }
 
-Data::Data(string _Award, bool _Winner, string _Name, string _Film){
+Data::Data(int _year, string _Award, bool _Winner, string _Name, string _Film){
+    year = _year;
     Award = _Award;
     Winner = _Winner;
     Name = _Name;
@@ -16,10 +17,8 @@ Data::Data(string _Award, bool _Winner, string _Name, string _Film){
 }
 
 Node::Node(){
-//    Data();
     LeftChild = nullptr;
     RightChild = nullptr;
-//    Parent = nullptr;
 }
 
 Node::Node(int _year, string _Award, bool _Winner, string _Name, string _Film){
@@ -39,12 +38,12 @@ Node::Node(Data& _data){
 //    Parent =  nullptr;
 }
 
-void Node::setLeftNode(Node &Node){
-    LeftChild = &Node;
+void Node::setLeftNode(Node* Node){
+    LeftChild = Node;
 }
 
-void Node::setRightNode(Node& Node){
-    RightChild = &Node;
+void Node::setRightNode(Node* Node){
+    RightChild = Node;
 }
 
 void Node::SetData(Data &_data){
