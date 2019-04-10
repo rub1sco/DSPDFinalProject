@@ -1,11 +1,11 @@
 #include "Node.hpp"
 
 Data::Data(){
-    year = 1993;
-    Award = "Best Yeezes";
-    Winner = "I guess so?";
-    Name = "Dr. Dre";
-    Film = "We Forgot about Dre.";
+    year = 0;
+    Award = "";
+    Winner = "";
+    Name = "";
+    Film = "";
 }
 
 Data::Data(int _year, string _Award, bool _Winner, string _Name, string _Film){
