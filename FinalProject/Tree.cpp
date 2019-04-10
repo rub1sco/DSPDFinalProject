@@ -36,7 +36,7 @@ void Tree::InsertNode(Data _data, string _key){
 void Tree::InsertNode(Data _data, Node *root, string key){
     
     if(key == root -> GetKey()){
-        cout << "value exists.." << endl;
+//        cout << "value exists.." << endl; //Should we have error checking if key == root key? May cause duplicates.. right now it is unsorted. IE. Ruth Catterson 1929 and 1930.
     }
     
     if(key < root -> GetKey()){
