@@ -1,16 +1,12 @@
 #include "functions.hpp"
-#include "Tree.hpp"
 
-using std::cout;
-using std::cin;
-using std::endl;
-using std::string;
 
 int menu(){
     char menu = '\0';
+    string ActorFile = "actor-actress.csv";
     
     //Build actor/Actress binary tree from CSV file
-    
+    Tree ActorTree = ReadCSVFile(ActorFile);
     
     //Build pictures binary tree
     
@@ -185,10 +181,34 @@ int menu(){
 }
 
 
-void readCSVFile(std::ifstream infile){
+Tree ReadCSVFile(string filename){
     
-//    while(infile >> ){
-//        
-//    }
+    std::ifstream infile;
+    int _Year = 0;
+    bool _Winner = 0;
+    string _Award,_Name, _Film;
+    Tree B;
     
+    infile.open(filename);
+    
+    if(!infile.is_open()){cout << "Error" << endl;}
+    
+    while (!infile.eof()) {
+        
+        //Year,Award,Winner,Name,Film
+        infile >> _Year;
+        infile.ignore();
+        getline(infile,_Award,',');
+        infile >> _Winner;
+        infile.ignore();
+        getline(infile,_Name,',');
+        getline(infile,_Film,'\n');
+        Data* newEntry = new Data(_Year, _Award, _Winner, _Name, _Film);
+        
+        B.InsertNode(* newEntry, _Name);
+    }
+    
+    infile.close();
+    
+    return B;
 }

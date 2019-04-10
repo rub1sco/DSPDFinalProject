@@ -4,9 +4,16 @@
 #include <stdio.h>
 #include <iostream>
 #include <fstream>
+#include <string>
+#include "Tree.hpp"
+
+using std::cout;
+using std::cin;
+using std::endl;
+using std::string;
 
 int menu();
-void ReadCSVFile(std::ifstream infile);
+Tree ReadCSVFile(string filename);
 
 
 #endif /* functions_hpp */

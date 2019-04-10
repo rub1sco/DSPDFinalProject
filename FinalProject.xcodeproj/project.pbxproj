@@ -30,11 +30,11 @@
 		E21993982242DE9A00A7922D /* Node.hpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.h; path = Node.hpp; sourceTree = "<group>"; };
 		E25F533F22545A8E00587804 /* functions.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = functions.cpp; sourceTree = "<group>"; };
 		E25F534022545A8E00587804 /* functions.hpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; path = functions.hpp; sourceTree = "<group>"; };
-		E25F53432254631700587804 /* pictures.csv */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = pictures.csv; sourceTree = "<group>"; };
-		E25F53442254631700587804 /* nominations.csv */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = nominations.csv; sourceTree = "<group>"; };
-		E25F53452254631700587804 /* actor-actress.csv */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = "actor-actress.csv"; sourceTree = "<group>"; };
 		E25F53462254678700587804 /* Tree.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = Tree.cpp; sourceTree = "<group>"; };
 		E25F53472254678700587804 /* Tree.hpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.h; path = Tree.hpp; sourceTree = "<group>"; };
+		E29F8536225DC3B70003CAC7 /* pictures.csv */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = pictures.csv; sourceTree = "<group>"; };
+		E29F8537225DC3B70003CAC7 /* nominations.csv */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = nominations.csv; sourceTree = "<group>"; };
+		E29F8538225DC3B70003CAC7 /* actor-actress.csv */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = "actor-actress.csv"; sourceTree = "<group>"; };
 		E2BFBB46221E393A00452A68 /* FinalProject */ = {isa = PBXFileReference; explicitFileType = "compiled.mach-o.executable"; includeInIndex = 0; path = FinalProject; sourceTree = BUILT_PRODUCTS_DIR; };
 		E2BFBB49221E393A00452A68 /* main.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = main.cpp; sourceTree = "<group>"; };
 		E2BFBB50221E395200452A68 /* readme.txt */ = {isa = PBXFileReference; lastKnownFileType = text; path = readme.txt; sourceTree = "<group>"; };
@@ -51,12 +51,12 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
-		E25F53422254631700587804 /* InputFiles */ = {
+		E29F8535225DC3B70003CAC7 /* InputFiles */ = {
 			isa = PBXGroup;
 			children = (
-				E25F53432254631700587804 /* pictures.csv */,
-				E25F53442254631700587804 /* nominations.csv */,
-				E25F53452254631700587804 /* actor-actress.csv */,
+				E29F8536225DC3B70003CAC7 /* pictures.csv */,
+				E29F8537225DC3B70003CAC7 /* nominations.csv */,
+				E29F8538225DC3B70003CAC7 /* actor-actress.csv */,
 			);
 			path = InputFiles;
 			sourceTree = "<group>";
@@ -80,7 +80,7 @@
 		E2BFBB48221E393A00452A68 /* FinalProject */ = {
 			isa = PBXGroup;
 			children = (
-				E25F53422254631700587804 /* InputFiles */,
+				E29F8535225DC3B70003CAC7 /* InputFiles */,
 				E25F533F22545A8E00587804 /* functions.cpp */,
 				E25F534022545A8E00587804 /* functions.hpp */,
 				E2BFBB49221E393A00452A68 /* main.cpp */,
