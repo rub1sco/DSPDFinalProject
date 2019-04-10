@@ -4,32 +4,39 @@
 #include <stdio.h>
 #include <string>
 
+using std::string;
+
+
 struct Data{
     int year;
-    std::string Award;
-    std::string Winner;
-    std::string Name;
-    std::string Film;
+    string Award;
+    bool Winner;
+    string Name;
+    string Film;
+    Data();
+    Data(string _Award, bool _Winner, string _Name, string _Film);
 };
 
 class Node{
-private:
+protected:
+    string key;
     Data data;
     Node* LeftChild;
     Node* RightChild;
-    Node* Parent;
+//    Node* Parent;       //TODO do we need a parent pointer or just left and right child?
     
 public:
     Node();
+    Node(int _year, string _Award, bool _Winner, string _Name, string _Film);
     Node(Data& _data);
+    string GetKey(){return key;}
+    void SetKey(string _key);
+    Data GetData(){return data;}
+    void SetData(Data& _data);
     Node* GetLeftNode(){return LeftChild;}
     void setLeftNode(Node& Node);
     Node* GetRightNode(){return RightChild;}
     void setRightNode(Node& Node);
-    Node* GetParentNode(){return Parent;}
-    void setParentNode(Node& Node);
-    
-    
     
 };
 

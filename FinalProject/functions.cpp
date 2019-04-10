@@ -1,15 +1,26 @@
 #include "functions.hpp"
+#include "Tree.hpp"
 
 using std::cout;
 using std::cin;
 using std::endl;
-
+using std::string;
 
 int menu(){
     char menu = '\0';
     
+    //Build actor/Actress binary tree from CSV file
+    
+    
+    //Build pictures binary tree
+    
+    
+    //Build nominations tree
+    
+    
+    
     while (menu != 'x' || menu != 'X'){
-        cout << "menu:" << endl;
+        cout << "Binary Search tree for Film Database" << endl;
         cout << "A: Add a record to Actor-Actress Database" << endl;
         cout << "B: Add a record to movie database" << endl;
         cout << "C: Add a record to nominations Database --extra credit--" << endl;
@@ -38,8 +49,21 @@ int menu(){
             case 'a':
             case 'A':
                 //TODO Add a record to Actor-Actress Database
+            {
+                Tree B;
+                Node* rootNode = new Node;
+                Data D;
+                string key = rootNode ->GetData().Name;
+                Node* Child = new Node(2000, "Best in Town", 0, "Earl Grey", "wtf is this shit?");
+                Node* Child2 = new Node(2003, "Beswn", 1, "Father Time", "wtf is this shit 2?");
+              
+                B.InsertNode(rootNode, key);
+                B.InsertNode(Child, Child ->GetData().Name);
+                B.InsertNode(Child2, Child2 ->GetData().Name);
                 
-                break;
+                cout << B.isEmpty() << endl;
+              break;
+            }
                 
             case 'b':
             case 'B':
@@ -160,6 +184,10 @@ int menu(){
 }
 
 
-void readCSV(){
+void readCSVFile(std::ifstream infile){
+    
+//    while(infile >> ){
+//        
+//    }
     
 }
