@@ -71,19 +71,62 @@ void Tree::InsertNode(Data _data, Node *root, string key){
 
 }
 
-bool Tree::removeNode(Node &node){
-    
-    return true;
+bool Tree::removeNode(string key){
+
+    //checks if rootptr is empty, if so nothing to delete.
+    if(rootPtr == nullptr){
+        cout << "Nothing in tree to delete" << endl;
+    }
+    else{
+        //if not empty, search with overloaded removeNode function
+        removeNode(rootPtr, key);
+    }
+    return false;
 }
 
-bool Tree::modifyNode(Node &node){
+bool Tree::removeNode(Node *root, string key){
     
-    return true;
+    if(key == root -> GetKey()){
+        Node* NodeToDelete = new Node;
+        NodeToDelete = rootPtr;
+        
+        //if Node does not have any children
+        if(NodeToDelete -> GetLeftNode() == nullptr && NodeToDelete -> GetRightNode() == nullptr){
+            delete NodeToDelete;
+            NodeToDelete = nullptr;
+            return true;
+        }
+        
+        //if node has two children
+            //needs to reassign right childs branch to rootptr
+            //needs to adjust the left child accordingly.
+        
+        //if node has only one child
+            //assign the child to rootPtr
+            //deletes old rootPtr
+        
+    }
+    //if key is less than the rootPtr, search the left branch
+    else if(key < root -> GetKey()){
+        root ->setLeftNode(root -> GetLeftNode());
+    }
+    //if key is greater than the rootPtr, search right branch
+    else if (key > root -> GetKey()){
+        root -> setRightNode(root -> GetRightNode());
+    }
+
+    return false;
 }
+
 
 bool Tree::searchTree(Node &node, string key){
     
-    return true;
+    
+    return false;
+}
+
+void Tree::SortTree(Node &node, string key){
+    
 }
 
 bool Tree::isEmpty(){

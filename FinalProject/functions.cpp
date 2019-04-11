@@ -8,6 +8,12 @@ int menu(){
     //Build actor/Actress binary tree from CSV file
     Tree ActorTree = ReadCSVFile(ActorFile);
     
+    //showing actor tree
+    ActorTree;
+    
+    ActorTree.removeNode(ActorTree.GetRootPtr() -> GetKey());
+    
+    ActorTree;
     //Build pictures binary tree
     
     
@@ -46,19 +52,7 @@ int menu(){
             case 'A':
                 //TODO Add a record to Actor-Actress Database
             {
-                Tree B;
-                
-                //test entries
-                Data D;
-                Data D2(2019,"Best Sound Design", 1, "Tom Lucero", "Carbon");
-                Data D3(2000,"Best actor", 0, "Harrison Ford", "Star Wars");
-                Data D4(2019,"Best soundtrack Composition", 1, "Jean P. Kabche", "Carbon");
-                
-                //test insertions
-                B.InsertNode(D, D.Name);
-                B.InsertNode(D2, D2.Name);
-                B.InsertNode(D3, D3.Name);
-                B.InsertNode(D4, D4.Name);
+      
               break;
             }
         
@@ -193,8 +187,9 @@ Tree ReadCSVFile(string filename){
     
     if(!infile.is_open()){cout << "Error" << endl;}
     
+    //this gets the first line of the csv file and "trashes" it
+    getline(infile, _Award,'\n');
     while (!infile.eof()) {
-        
         //Year,Award,Winner,Name,Film
         infile >> _Year;
         infile.ignore();
@@ -210,5 +205,6 @@ Tree ReadCSVFile(string filename){
     
     infile.close();
     
+
     return B;
 }
