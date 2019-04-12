@@ -11,7 +11,7 @@ int menu(){
     //showing actor tree
     ActorTree;
     
-    ActorTree.removeNode(ActorTree.GetRootPtr() -> GetKey());
+    ActorTree.removeNode("Emil Jannings");
     
     ActorTree;
     //Build pictures binary tree

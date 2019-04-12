@@ -71,7 +71,7 @@ void Tree::InsertNode(Data _data, Node *root, string key){
 
 }
 
-bool Tree::removeNode(string key){
+Node* Tree::removeNode(string key){
 
     //checks if rootptr is empty, if so nothing to delete.
     if(rootPtr == nullptr){
@@ -81,41 +81,68 @@ bool Tree::removeNode(string key){
         //if not empty, search with overloaded removeNode function
         removeNode(rootPtr, key);
     }
-    return false;
+    return rootPtr;
 }
 
-bool Tree::removeNode(Node *root, string key){
+Node* Tree::removeNode(Node *root, string key){
     
-    if(key == root -> GetKey()){
-        Node* NodeToDelete = new Node;
-        NodeToDelete = rootPtr;
+    if (key < root -> GetKey()){
+        removeNode(root -> GetLeftNode(), key);
+    }
+    else if (key > root -> GetKey()){
+        removeNode(root -> GetRightNode(), key);
+    }
+    else{
         
-        //if Node does not have any children
-        if(NodeToDelete -> GetLeftNode() == nullptr && NodeToDelete -> GetRightNode() == nullptr){
-            delete NodeToDelete;
-            NodeToDelete = nullptr;
-            return true;
+        //if no children
+        if(root -> GetLeftNode() == nullptr && root -> GetRightNode() == nullptr){
+            //if nothing, just need to delete.
+            delete root;
+            root = nullptr;
         }
         
-        //if node has two children
-            //needs to reassign right childs branch to rootptr
-            //needs to adjust the left child accordingly.
+        //if one child
+        else if (root -> GetRightNode() == nullptr){
+            Node* NodeToDelete = new Node;
+            NodeToDelete = root;
+            
+            root = NodeToDelete -> GetLeftNode();
+            delete NodeToDelete;
+            NodeToDelete = nullptr;
+            
+        }
+        else if (root -> GetLeftNode() == nullptr){
+            Node* NodeToDelete = new Node;
+            NodeToDelete = root;
+            
+            root = NodeToDelete -> GetRightNode();
+            delete NodeToDelete;
+            NodeToDelete = nullptr;
+        }
+        //if two children
+        else{
+            Node* NodeToDelete = new Node;
+            NodeToDelete = root;
+            
+            //needs to set right child as root
+            root -> SetKey(NodeToDelete-> GetRightNode() -> GetKey());
+            root = NodeToDelete -> GetRightNode();
+           
+            
+            //needs to set old root left child to new root left child
+//            root -
+            
+            //delete node
+            delete NodeToDelete;
+            
+            //node to null
+            NodeToDelete = nullptr;
+            
+        }
         
-        //if node has only one child
-            //assign the child to rootPtr
-            //deletes old rootPtr
-        
     }
-    //if key is less than the rootPtr, search the left branch
-    else if(key < root -> GetKey()){
-        root ->setLeftNode(root -> GetLeftNode());
-    }
-    //if key is greater than the rootPtr, search right branch
-    else if (key > root -> GetKey()){
-        root -> setRightNode(root -> GetRightNode());
-    }
-
-    return false;
+    
+    return root;
 }
 
 
@@ -140,3 +167,38 @@ bool Tree::isEmpty(){
     return false;
 }
 
+
+//if(key == root -> GetKey()){
+//    Node* NodeToDelete = new Node;
+//    NodeToDelete = root;
+//
+//    //if Node does not have any children
+//    if(NodeToDelete -> GetLeftNode() == nullptr && NodeToDelete -> GetRightNode() == nullptr){
+//        delete NodeToDelete;
+//        NodeToDelete = nullptr;
+//        return true;
+//    }
+//
+//    //if node has two children
+//    //needs to reassign right childs branch to rootptr
+//    //needs to adjust the left child accordingly.
+//    else if(root -> GetLeftNode() != nullptr && root -> GetLeftNode() != nullptr){
+//        root = NodeToDelete -> GetRightNode();
+//        root -> setLeftNode(NodeToDelete -> GetLeftNode());
+//        root -> setRightNode(NodeToDelete -> GetRightNode());
+//        root -> SetKey(NodeToDelete -> GetKey());
+//        delete NodeToDelete;
+//    }
+//
+//    //if node has only one child
+//    //assign the child to rootPtr
+//    //deletes old rootPtr
+//    else if(root -> GetRightNode() == nullptr){
+//        root = NodeToDelete ->GetLeftNode();
+//        root -> SetKey(NodeToDelete -> GetKey());
+//        NodeToDelete = nullptr;
+//        delete NodeToDelete;
+//    }
+//
+//
+//    }
