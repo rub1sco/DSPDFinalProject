@@ -46,7 +46,7 @@ void Node::setRightNode(Node* Node){
     RightChild = Node;
 }
 
-void Node::SetData(Data &_data){
+void Node::SetData(Data _data){
     data = _data;
 }
 

@@ -11,7 +11,7 @@ int menu(){
     //showing actor tree
     ActorTree;
     
-    ActorTree.removeNode("Emil Jannings");
+    ActorTree.removeNode("Emil Jannings");          //TODO... currently at leftchild == null, loops with new left child, not old... 
     
     ActorTree;
     //Build pictures binary tree

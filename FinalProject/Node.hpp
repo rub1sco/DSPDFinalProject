@@ -31,7 +31,7 @@ public:
     string GetKey(){return key;}
     void SetKey(string _key);
     Data GetData(){return data;}
-    void SetData(Data& _data);
+    void SetData(Data _data);
     Node* GetLeftNode(){return LeftChild;}
     void setLeftNode(Node* Node);
     Node* GetRightNode(){return RightChild;}

@@ -71,20 +71,22 @@ void Tree::InsertNode(Data _data, Node *root, string key){
 
 }
 
+
 Node* Tree::removeNode(string key){
 
     //checks if rootptr is empty, if so nothing to delete.
     if(rootPtr == nullptr){
         cout << "Nothing in tree to delete" << endl;
     }
-    else{
-        //if not empty, search with overloaded removeNode function
-        removeNode(rootPtr, key);
-    }
-    return rootPtr;
+//    else{
+//        //if not empty, search with overloaded removeNode function
+////       return removeNode(rootPtr, key);
+//    }
+     return removeNode(rootPtr, key);
 }
 
-Node* Tree::removeNode(Node *root, string key){
+
+Node* Tree::removeNode(Node* root, string key){
     
     if (key < root -> GetKey()){
         removeNode(root -> GetLeftNode(), key);
@@ -121,16 +123,31 @@ Node* Tree::removeNode(Node *root, string key){
         }
         //if two children
         else{
+            //creates node to be deleted
             Node* NodeToDelete = new Node;
-            NodeToDelete = root;
+            NodeToDelete = rootPtr;
             
-            //needs to set right child as root
-            root -> SetKey(NodeToDelete-> GetRightNode() -> GetKey());
-            root = NodeToDelete -> GetRightNode();
-           
+//            root = NodeToDelete -> GetRightNode();
+            
+            //sets NodeToDelete key to the Right childs Key
+            root -> SetKey(NodeToDelete ->GetRightNode() -> GetKey());
+            
+            //sets the NodeToDelete data to Right child's data
+            root -> SetData(NodeToDelete ->GetRightNode() ->GetData());
+            
+            //sets the right child to the right child of the new Node
+            root -> setLeftNode(NodeToDelete -> GetRightNode() -> GetLeftNode());
+            root -> setRightNode(NodeToDelete -> GetRightNode() -> GetRightNode());
+//            root -> setLeftNode(root -> GetRightNode() -> GetLeftNode());
             
             //needs to set old root left child to new root left child
-//            root -
+            while (root -> GetLeftNode() != nullptr){
+                root = root -> GetLeftNode();
+            }
+            
+            root -> setLeftNode(NodeToDelete ->GetLeftNode());
+            
+            root = NodeToDelete -> GetRightNode();
             
             //delete node
             delete NodeToDelete;
