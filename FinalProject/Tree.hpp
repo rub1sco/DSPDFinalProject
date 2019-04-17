@@ -26,7 +26,7 @@ public:
     
     //accessors and mutators
     Node* GetRootPtr(){return rootPtr;}
-    void setRootPtr(Node& node);
+    void setRootPtr(Node* node);
     
     //member functions              //TODO instructions say to make these private with public accessors?
     void InsertNode(Data _data, string _key);
